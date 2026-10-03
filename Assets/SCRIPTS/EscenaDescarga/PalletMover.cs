@@ -11,9 +11,16 @@ public class PalletMover : ManejoPallets {
         Tactile
     }
 
+    public enum ScreenSide { Left, Right }
+    public ScreenSide mySide;
+    
     public ManejoPallets Desde, Hasta;
     bool segundoCompleto = false;
 
+    private Vector2 startTouchPosition;
+    private Vector2 endTouchPosition;
+    private bool processedSwipe = true;    
+    
     private void Update() {
         switch (miInput) {
             case MoveType.WASD:
@@ -27,6 +34,7 @@ public class PalletMover : ManejoPallets {
                     TercerPaso();
                 }
                 break;
+                
             case MoveType.Arrows:
                 if (!Tenencia() && Desde.Tenencia() && Input.GetKeyDown(KeyCode.LeftArrow)) {
                     PrimerPaso();
@@ -38,11 +46,81 @@ public class PalletMover : ManejoPallets {
                     TercerPaso();
                 }
                 break;
-            default:
+                
+            case MoveType.Tactile:
+                DetectSwipe();
                 break;
         }
     }
 
+    private void DetectSwipe()
+    {
+        float swipeThreshold = Screen.width * 0.05f;
+        
+        foreach (Touch touch in Input.touches)
+        {
+            bool validTouch = false;
+            if (mySide == ScreenSide.Left && touch.position.x < Screen.width / 2.0f)
+            {
+                validTouch = true;
+            } else if (mySide == ScreenSide.Right && touch.position.x > Screen.width / 2.0f)
+            {
+                validTouch = true;
+            }
+
+            if (validTouch)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    startTouchPosition = touch.position;
+                    processedSwipe = false;
+                } 
+                else if (touch.phase == TouchPhase.Moved && !processedSwipe) 
+                {
+                    endTouchPosition = touch.position;
+                    
+                    if (Vector2.Distance(startTouchPosition, endTouchPosition) > swipeThreshold) 
+                    {
+                        ProcessSwipeDirection();
+                        processedSwipe = true; 
+                    }
+                }
+            }
+        }
+    }
+    
+    private void ProcessSwipeDirection() 
+    {
+        float xDistance = endTouchPosition.x - startTouchPosition.x;
+        float yDistance = endTouchPosition.y - startTouchPosition.y;
+
+        if (Mathf.Abs(xDistance) > Mathf.Abs(yDistance)) 
+        {
+            if (xDistance < 0)
+            {
+                if (!Tenencia() && Desde.Tenencia()) {
+                    PrimerPaso();
+                }
+            } else
+            {
+                if (segundoCompleto && Tenencia()) 
+                {
+                    TercerPaso();
+                }
+            }
+        } 
+        else
+        {
+            if (yDistance < 0) 
+            {
+                if (Tenencia()) 
+                {
+                    SegundoPaso();
+                }
+            }
+        }
+    }
+    
     public void PrimerPaso() {
         Desde.Dar(this);
         segundoCompleto = false;
