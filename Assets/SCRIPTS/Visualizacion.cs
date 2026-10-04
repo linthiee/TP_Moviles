@@ -62,6 +62,7 @@ public class Visualizacion : MonoBehaviour
     public Texture2D[] TextInvDer;
 
     public Image moneyBags;
+    public Image moneyBagsDischarge;
     public Sprite[] stateSprites;
 
     //public GUISkin GS_Inv;
@@ -102,7 +103,12 @@ public class Visualizacion : MonoBehaviour
     public GameObject dischargePanel;
 
     public TextMeshProUGUI moneyText;
-    
+    public TextMeshProUGUI dischargeMoneyText;
+
+    public GameObject bonusContainer;
+    public Image bonusFill;
+    public TextMeshProUGUI bonusText;
+
     Rect R;
 
     //------------------------------------------------------------------//
@@ -113,33 +119,74 @@ public class Visualizacion : MonoBehaviour
         TempoIntTuto = Intervalo;
         Direccion = GetComponent<ControlDireccion>();
         Pj = GetComponent<Player>();
+
+        bonusContainer.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Pj.EstAct == Player.Estados.EnConduccion || Pj.EstAct == Player.Estados.EnDescarga)
+        if (Pj.EstAct == Player.Estados.EnConduccion)
         {
             if (moneyText != null)
-            {
                 moneyText.text = "$" + PrepararNumeros(Pj.Dinero);
-            }
 
-            UpdateInventory();
+            UpdateConductionInventory();
+        }
+        else if (Pj.EstAct == Player.Estados.EnDescarga)
+        {
+            if (dischargeMoneyText != null)
+                dischargeMoneyText.text =
+                    "$" + PrepararNumeros((int)(Pj.Dinero + Pj.ContrDesc.Bonus / (int)Pallet.Valores.Valor2));
+            UpdateDischargeInventory();
+
+            UpdateBonus();
         }
     }
 
-    void UpdateInventory()
+    void UpdateBonus()
+    {
+        if (Pj.ContrDesc != null && Pj.ContrDesc.PEnMov != null)
+        {
+            if (bonusContainer != null) 
+                bonusContainer.SetActive(true);
+
+            if (bonusText != null)
+            {
+                bonusText.text = "$" + Pj.ContrDesc.Bonus.ToString("0");
+            }
+
+            if (bonusFill != null)
+            {
+                float porcentaje = Pj.ContrDesc.Bonus / (float)Pallet.Valores.Valor2;
+                bonusFill.fillAmount = porcentaje;
+            }
+        }
+        else
+        {
+            if (bonusContainer != null) 
+                bonusContainer.SetActive(false);
+        }
+    }
+
+    int CountBags()
+    {
+        int contador = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            if (Pj.Bolasas[i] != null)
+                contador++;
+        }
+
+        return contador;
+    }
+
+    void UpdateConductionInventory()
     {
         if (moneyBags == null || stateSprites.Length < 6)
             return;
 
-        int counter = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            if (Pj.Bolasas[i] != null)
-                counter++;
-        }
+        int counter = CountBags();
 
         if (counter < 3)
         {
@@ -156,9 +203,40 @@ public class Visualizacion : MonoBehaviour
             }
 
             if (PrimIma)
-                moneyBags.sprite = stateSprites[4]; 
+                moneyBags.sprite = stateSprites[4];
             else
-                moneyBags.sprite = stateSprites[5]; 
+                moneyBags.sprite = stateSprites[5];
+        }
+    }
+
+    void UpdateDischargeInventory()
+    {
+        if (moneyBagsDischarge == null || stateSprites.Length < 6)
+            return;
+
+        Debug.Log("estoy descargando");
+
+        int counter = CountBags();
+        Debug.Log($"{CountBags()}");
+
+        if (counter < 3)
+        {
+            moneyBagsDischarge.sprite = stateSprites[counter];
+        }
+        else
+        {
+            TempParp += Time.deltaTime;
+
+            if (TempParp >= Parpadeo)
+            {
+                TempParp = 0;
+                PrimIma = !PrimIma;
+            }
+
+            if (PrimIma)
+                moneyBagsDischarge.sprite = stateSprites[4];
+            else
+                moneyBagsDischarge.sprite = stateSprites[5];
         }
     }
 
@@ -180,9 +258,9 @@ public class Visualizacion : MonoBehaviour
                 //inventario
                 //SetInv3();
                 //el bonus
-                SetBonus();
+                //SetBonus();
                 //contador de dinero
-                //SetDinero();			
+                //\SetDinero();			
                 break;
 
 
