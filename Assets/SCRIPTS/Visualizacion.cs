@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// clase encargada de TODA la visualizacion
@@ -54,7 +56,7 @@ public class Visualizacion : MonoBehaviour
 	public Texture2D[] TextInvIzq;
 	public Texture2D[] TextInvDer;
 	
-	public GUISkin GS_Inv;
+	//public GUISkin GS_Inv;
 	
 	//BONO DE DESCARGA
 	public Vector2 BonusPos = Vector2.zero;
@@ -88,8 +90,10 @@ public class Visualizacion : MonoBehaviour
 	public Texture2D TextNum2;
 	public GameObject Techo;
 	
+	public GameObject conductionPanel;
+	public GameObject dischargePanel;	
 	
-	
+	public TextMeshProUGUI moneyText;
 	
 	Rect R;
 	
@@ -106,7 +110,13 @@ public class Visualizacion : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (Pj.EstAct == Player.Estados.EnConduccion || Pj.EstAct == Player.Estados.EnDescarga)
+		{
+			if (moneyText != null)
+			{
+				moneyText.text = "$" + PrepararNumeros(Pj.Dinero);
+			}
+		}
 	}
 	
 	void OnGUI()
@@ -117,22 +127,22 @@ public class Visualizacion : MonoBehaviour
 			
 		case Player.Estados.EnConduccion:
 			//inventario
-			SetInv3();
+			//SetInv3();
 			//contador de dinero
-			SetDinero();
+			//SetDinero();
 			//el volante
-			SetVolante();
+		//	SetVolante();
 			break;
 			
 			
 			
 		case Player.Estados.EnDescarga:
 			//inventario
-			SetInv3();
+			//SetInv3();
 			//el bonus
 			SetBonus();
 			//contador de dinero
-			SetDinero();			
+			//SetDinero();			
 			break;
 			
 			
@@ -142,9 +152,9 @@ public class Visualizacion : MonoBehaviour
 			
 			
 		case Player.Estados.EnTutorial:
-			SetInv3();
+			//SetInv3();
 			SetTuto();
-			SetVolante();
+			//SetVolante();
 			break;
 		}
 		
@@ -158,6 +168,9 @@ public class Visualizacion : MonoBehaviour
 		CamCalibracion.enabled = true;
 		CamConduccion.enabled = false;
 		CamDescarga.enabled = false;
+		
+		conductionPanel.SetActive(false);
+		dischargePanel.SetActive(false);
 	}
 	
 	public void CambiarATutorial()
@@ -165,6 +178,9 @@ public class Visualizacion : MonoBehaviour
 		CamCalibracion.enabled = false;
 		CamConduccion.enabled = true;
 		CamDescarga.enabled = false;
+		
+		conductionPanel.SetActive(true);
+		dischargePanel.SetActive(false);
 	}
 	
 	public void CambiarAConduccion()
@@ -172,6 +188,9 @@ public class Visualizacion : MonoBehaviour
 		CamCalibracion.enabled = false;
 		CamConduccion.enabled = true;
 		CamDescarga.enabled = false;
+		
+		conductionPanel.SetActive(true);
+		dischargePanel.SetActive(false);
 	}
 	
 	public void CambiarADescarga()
@@ -179,6 +198,9 @@ public class Visualizacion : MonoBehaviour
 		CamCalibracion.enabled = false;
 		CamConduccion.enabled = false;
 		CamDescarga.enabled = true;
+		
+		conductionPanel.SetActive(false);
+		dischargePanel.SetActive(true);
 	}
 	
 	//---------//
@@ -259,19 +281,19 @@ public class Visualizacion : MonoBehaviour
 		}
 	}
 	
-	void SetDinero()
-	{
-		GUI.skin = GS_Din;
-		
-		R.width = DinEsc.x *Screen.width /100;
-		R.height = DinEsc.y *Screen.height /100;
-		R.x = DinPos[0].x *Screen.width /100;
-		R.y = DinPos[0].y *Screen.height /100;
-		if(LadoAct == Visualizacion.Lado.Der)
-			R.x = DinPos[1].x *Screen.width /100;
-			//R.x = (Screen.width) - (Screen.width/2) - R.x;
-		GUI.Box(R, "$" + PrepararNumeros(Pj.Dinero));
-	}
+	// void SetDinero()
+	// {
+	// 	GUI.skin = GS_Din;
+	// 	
+	// 	R.width = DinEsc.x *Screen.width /100;
+	// 	R.height = DinEsc.y *Screen.height /100;
+	// 	R.x = DinPos[0].x *Screen.width /100;
+	// 	R.y = DinPos[0].y *Screen.height /100;
+	// 	if(LadoAct == Visualizacion.Lado.Der)
+	// 		R.x = DinPos[1].x *Screen.width /100;
+	// 		//R.x = (Screen.width) - (Screen.width/2) - R.x;
+	// 	GUI.Box(R, "$" + PrepararNumeros(Pj.Dinero));
+	// }
 	
 	void SetCalibr()
 	{
@@ -385,138 +407,138 @@ public class Visualizacion : MonoBehaviour
 	}
 	*/
 	
-	void SetVolante()
-	{
-		GUI.skin = GS_Volante;
-		
-		R.width = VolanteEsc * Screen.width /100;
-		R.height = VolanteEsc * Screen.width /100;
-		R.x = VolantePos[0].x *Screen.width /100;
-		R.y = VolantePos[0].y *Screen.height /100;
-		
-		if(LadoAct == Visualizacion.Lado.Der)
-			R.x = VolantePos[1].x *Screen.width /100;
-			//R.x = (Screen.width) - ((Screen.width/2) - R.x);
-		
-		Vector2 centro;
-		centro.x = R.x + R.width/2;
-		centro.y = R.y + R.height/2;
-		float angulo = 100 * Direccion.GetGiro();
-		
-		GUIUtility.RotateAroundPivot(angulo, centro);
-				
-		GUI.Box(R,"");
-		
-		GUIUtility.RotateAroundPivot(angulo*(-1), centro);
-	}
-	
-	void SetInv2()
-	{
-		GUI.skin = GS_Inv;
-		
-		R.width = FondoEsc.x * Screen.width /100;
-		R.height = FondoEsc.y * Screen.width /100;
-		R.x = FondoPos[0].x * Screen.width /100;
-		R.y = FondoPos[0].y * Screen.height /100;
-		
-		int contador = 0;
-		for(int i = 0; i < 3; i++)
-		{
-			if(Pj.Bolasas[i]!=null)
-				contador++;
-		}
-		
-		if(LadoAct == Visualizacion.Lado.Der)
-		{
-			//R.x = (Screen.width) - R.x - R.width;
-			R.x = FondoPos[1].x * Screen.width /100;
-			GS_Inv.box.normal.background = TextInvDer[contador];
-		}
-		else
-		{
-			GS_Inv.box.normal.background = TextInvIzq[contador];
-		}
-		
-		GUI.Box(R,"");
-	}
-	
-	void SetInv3()
-	{
-		GUI.skin = GS_Inv;
-		
-		R.width = FondoEsc.x * Screen.width /100;
-		R.height = FondoEsc.y * Screen.width /100;
-		R.x = FondoPos[0].x * Screen.width /100;
-		R.y = FondoPos[0].y * Screen.height /100;
-		
-		int contador = 0;
-		for(int i = 0; i < 3; i++)
-		{
-			if(Pj.Bolasas[i]!=null)
-				contador++;
-		}
-		
-		if(LadoAct == Visualizacion.Lado.Der)
-		{
-			//R.x = (Screen.width) - (Screen.width/2) - R.x;
-			R.x = FondoPos[1].x * Screen.width /100;
-			
-			if(contador < 3)
-				GS_Inv.box.normal.background = TextInvDer[contador];
-			else
-			{
-				TempParp += T.GetDT();
-				
-				if(TempParp >= Parpadeo)
-				{
-					TempParp = 0;
-					if(PrimIma)
-						PrimIma = false;
-					else
-						PrimIma = true;
-				}
-				
-				if(PrimIma)
-				{
-					GS_Inv.box.normal.background = TextInvDer[3];
-				}
-				else
-				{
-					GS_Inv.box.normal.background = TextInvDer[4];
-				}
-				
-			}
-		}
-		else
-		{
-			if(contador < 3)
-				GS_Inv.box.normal.background = TextInvIzq[contador];
-			else
-			{
-				TempParp += T.GetDT();
-				
-				if(TempParp >= Parpadeo)
-				{
-					TempParp = 0;
-					if(PrimIma)
-						PrimIma = false;
-					else
-						PrimIma = true;
-				}
-				
-				if(PrimIma)
-				{
-					GS_Inv.box.normal.background = TextInvIzq[3];
-				}
-				else
-				{
-					GS_Inv.box.normal.background = TextInvIzq[4];
-				}
-			}
-		}
-		
-		GUI.Box(R,"");
-	}
+	// void SetVolante()
+	// {
+	// 	GUI.skin = GS_Volante;
+	// 	
+	// 	R.width = VolanteEsc * Screen.width /100;
+	// 	R.height = VolanteEsc * Screen.width /100;
+	// 	R.x = VolantePos[0].x *Screen.width /100;
+	// 	R.y = VolantePos[0].y *Screen.height /100;
+	// 	
+	// 	if(LadoAct == Visualizacion.Lado.Der)
+	// 		R.x = VolantePos[1].x *Screen.width /100;
+	// 		//R.x = (Screen.width) - ((Screen.width/2) - R.x);
+	// 	
+	// 	Vector2 centro;
+	// 	centro.x = R.x + R.width/2;
+	// 	centro.y = R.y + R.height/2;
+	// 	float angulo = 100 * Direccion.GetGiro();
+	// 	
+	// 	GUIUtility.RotateAroundPivot(angulo, centro);
+	// 			
+	// 	GUI.Box(R,"");
+	// 	
+	// 	GUIUtility.RotateAroundPivot(angulo*(-1), centro);
+	// }
+	//
+	// void SetInv2()
+	// {
+	// 	GUI.skin = GS_Inv;
+	// 	
+	// 	R.width = FondoEsc.x * Screen.width /100;
+	// 	R.height = FondoEsc.y * Screen.width /100;
+	// 	R.x = FondoPos[0].x * Screen.width /100;
+	// 	R.y = FondoPos[0].y * Screen.height /100;
+	// 	
+	// 	int contador = 0;
+	// 	for(int i = 0; i < 3; i++)
+	// 	{
+	// 		if(Pj.Bolasas[i]!=null)
+	// 			contador++;
+	// 	}
+	// 	
+	// 	if(LadoAct == Visualizacion.Lado.Der)
+	// 	{
+	// 		//R.x = (Screen.width) - R.x - R.width;
+	// 		R.x = FondoPos[1].x * Screen.width /100;
+	// 		GS_Inv.box.normal.background = TextInvDer[contador];
+	// 	}
+	// 	else
+	// 	{
+	// 		GS_Inv.box.normal.background = TextInvIzq[contador];
+	// 	}
+	// 	
+	// 	GUI.Box(R,"");
+	// }
+	//
+	// void SetInv3()
+	// {
+	// 	GUI.skin = GS_Inv;
+	// 	
+	// 	R.width = FondoEsc.x * Screen.width /100;
+	// 	R.height = FondoEsc.y * Screen.width /100;
+	// 	R.x = FondoPos[0].x * Screen.width /100;
+	// 	R.y = FondoPos[0].y * Screen.height /100;
+	// 	
+	// 	int contador = 0;
+	// 	for(int i = 0; i < 3; i++)
+	// 	{
+	// 		if(Pj.Bolasas[i]!=null)
+	// 			contador++;
+	// 	}
+	// 	
+	// 	if(LadoAct == Visualizacion.Lado.Der)
+	// 	{
+	// 		//R.x = (Screen.width) - (Screen.width/2) - R.x;
+	// 		R.x = FondoPos[1].x * Screen.width /100;
+	// 		
+	// 		if(contador < 3)
+	// 			GS_Inv.box.normal.background = TextInvDer[contador];
+	// 		else
+	// 		{
+	// 			TempParp += T.GetDT();
+	// 			
+	// 			if(TempParp >= Parpadeo)
+	// 			{
+	// 				TempParp = 0;
+	// 				if(PrimIma)
+	// 					PrimIma = false;
+	// 				else
+	// 					PrimIma = true;
+	// 			}
+	// 			
+	// 			if(PrimIma)
+	// 			{
+	// 				GS_Inv.box.normal.background = TextInvDer[3];
+	// 			}
+	// 			else
+	// 			{
+	// 				GS_Inv.box.normal.background = TextInvDer[4];
+	// 			}
+	// 			
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		if(contador < 3)
+	// 			GS_Inv.box.normal.background = TextInvIzq[contador];
+	// 		else
+	// 		{
+	// 			TempParp += T.GetDT();
+	// 			
+	// 			if(TempParp >= Parpadeo)
+	// 			{
+	// 				TempParp = 0;
+	// 				if(PrimIma)
+	// 					PrimIma = false;
+	// 				else
+	// 					PrimIma = true;
+	// 			}
+	// 			
+	// 			if(PrimIma)
+	// 			{
+	// 				GS_Inv.box.normal.background = TextInvIzq[3];
+	// 			}
+	// 			else
+	// 			{
+	// 				GS_Inv.box.normal.background = TextInvIzq[4];
+	// 			}
+	// 		}
+	// 	}
+	// 	
+	// 	GUI.Box(R,"");
+	// }
 	
 	public string PrepararNumeros(int dinero)
 	{

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -148,13 +149,13 @@ public class GameManager : MonoBehaviour
                     if (PlayerInfo1 == null || PlayerInfo1.PJ == null)
                     {
                         PlayerInfo1 = new PlayerInfo(0, Player1);
-                        PlayerInfo1.LadoAct = Visualizacion.Lado.Izq;
+                        PlayerInfo1.sideAct = Visualizacion.Lado.Izq;
                         SetPosicion(PlayerInfo1);
                     }
                     else if (PlayerInfo2 == null || PlayerInfo2.PJ == null)
                     {
                         PlayerInfo2 = new PlayerInfo(1, Player2);
-                        PlayerInfo2.LadoAct = Visualizacion.Lado.Der;
+                        PlayerInfo2.sideAct = Visualizacion.Lado.Der;
                         SetPosicion(PlayerInfo2);
                     }
                 }
@@ -370,7 +371,7 @@ public class GameManager : MonoBehaviour
         if (Player1.Dinero > Player2.Dinero)
         {
             //lado que gano
-            if (PlayerInfo1.LadoAct == Visualizacion.Lado.Der)
+            if (PlayerInfo1.sideAct == Visualizacion.Lado.Der)
                 DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
             else
                 DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
@@ -382,7 +383,7 @@ public class GameManager : MonoBehaviour
         else
         {
             //lado que gano
-            if (PlayerInfo2.LadoAct == Visualizacion.Lado.Der)
+            if (PlayerInfo2.sideAct == Visualizacion.Lado.Der)
                 DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
             else
                 DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
@@ -418,7 +419,7 @@ public class GameManager : MonoBehaviour
     //se encarga de posicionar la camara derecha para el jugador que esta a la derecha y viseversa
     void SetPosicion(PlayerInfo pjInf)
     {
-        pjInf.PJ.GetComponent<Visualizacion>().SetLado(pjInf.LadoAct);
+        pjInf.PJ.GetComponent<Visualizacion>().SetLado(pjInf.sideAct);
         //en este momento, solo la primera vez, deberia setear la otra camara asi no se superponen
         pjInf.PJ.ContrCalib.IniciarTesteo();
         PosSeteada = true;
@@ -426,14 +427,14 @@ public class GameManager : MonoBehaviour
 
         if (pjInf.PJ == Player1)
         {
-            if (pjInf.LadoAct == Visualizacion.Lado.Izq)
+            if (pjInf.sideAct == Visualizacion.Lado.Izq)
                 Player2.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Der);
             else
                 Player2.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Izq);
         }
         else
         {
-            if (pjInf.LadoAct == Visualizacion.Lado.Izq)
+            if (pjInf.sideAct == Visualizacion.Lado.Izq)
                 Player1.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Der);
             else
                 Player1.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Izq);
@@ -488,7 +489,7 @@ public class GameManager : MonoBehaviour
 
 
         //posiciona los camiones dependiendo de que lado de la pantalla esten
-        if (PlayerInfo1.LadoAct == Visualizacion.Lado.Izq)
+        if (PlayerInfo1.sideAct == Visualizacion.Lado.Izq)
         {
             Player1.gameObject.transform.position = PosCamionesCarrera[0];
             Player2.gameObject.transform.position = PosCamionesCarrera[1];
@@ -567,7 +568,7 @@ public class GameManager : MonoBehaviour
         public bool FinTuto1 = false;
         public bool FinTuto2 = false;
 
-        public Visualizacion.Lado LadoAct;
+        [FormerlySerializedAs("LadoAct")] public Visualizacion.Lado sideAct;
 
         public int TipoDeInput = -1;
 
