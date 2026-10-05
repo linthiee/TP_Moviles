@@ -9,13 +9,34 @@ public class MenuController : MonoBehaviour
     public GameObject creditsPanel;
     public GameObject difficultyPanel;
     
+    private IState _state;
+
+    private void Start()
+    {
+        menuPanel.SetActive(false);
+        difficultyPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+
+        ChangeState(new MenuState());
+    }
+    
+    public void ChangeState(IState newState)
+    {
+        if (_state != null)
+        {
+            _state.Exit(this);
+        }
+
+        _state = newState;
+        _state.Enter(this);
+    }
+    
     public void PlaySingleplayer()
     {
         PlayerPrefs.SetInt("ModoSingleplayer", 1);
         PlayerPrefs.Save();
         
-        menuPanel.SetActive(false);
-        difficultyPanel.SetActive(true);
+        ChangeState(new DifficultyState());
     }
 
     public void PlayMultiplayer()
@@ -23,8 +44,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("ModoSingleplayer", 0);
         PlayerPrefs.Save();
         
-        menuPanel.SetActive(false);
-        difficultyPanel.SetActive(true);
+        ChangeState(new DifficultyState());
     }
     
     public void SetEasyDifficulty()
@@ -32,8 +52,8 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("Difficulty", 0); 
         PlayerPrefs.Save();
         
-        menuPanel.SetActive(false);
-        difficultyPanel.SetActive(false);
+        if (_state != null) 
+            _state.Exit(this);
         
         LoadingScreen.instance.LoadScene(sceneName);
     }
@@ -42,9 +62,9 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt("Difficulty", 1);
         PlayerPrefs.Save();
-        
-        menuPanel.SetActive(false);
-        difficultyPanel.SetActive(false);
+
+        if (_state != null)
+            _state.Exit(this);
 
         LoadingScreen.instance.LoadScene(sceneName);
     }
@@ -53,24 +73,21 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt("Difficulty", 2); 
         PlayerPrefs.Save();
-        
-        menuPanel.SetActive(false);
-        difficultyPanel.SetActive(false);
+
+        if (_state != null) 
+            _state.Exit(this);
 
         LoadingScreen.instance.LoadScene(sceneName);
     }
     
     public void GoToCredits()
     {
-        menuPanel.SetActive(false);
-        creditsPanel.SetActive(true);
+        ChangeState(new CreditsState());
     }
 
     public void GoToMenu()
     {
-        menuPanel.SetActive(true);
-        creditsPanel.SetActive(false);
-        difficultyPanel.SetActive(false);
+        ChangeState(new MenuState());
     }
 
     public void Exit()
