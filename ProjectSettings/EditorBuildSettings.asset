@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ESCENAS/MainMenu.unity
     guid: 91bbd61310e00124289037fbc72beec4
+  - enabled: 0
+    path: Assets/ESCENAS/LoadingScreen.unity
+    guid: 893a97822cc935a4b96ffd5e00416803
   - enabled: 1
     path: Assets/ESCENAS/conduccion9.unity
     guid: 6a990c81459e9b04c87adbbd2d639bbd

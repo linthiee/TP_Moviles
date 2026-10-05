@@ -79,12 +79,21 @@ public class PalletMover : ManejoPallets {
         foreach (Touch touch in Input.touches)
         {
             bool validTouch = false;
-            if (mySide == ScreenSide.Left && touch.position.x < Screen.width / 2.0f)
+            
+            if (GameManager.Instancia != null && GameManager.Instancia.isSingleplayer)
             {
                 validTouch = true;
-            } else if (mySide == ScreenSide.Right && touch.position.x > Screen.width / 2.0f)
+            }
+            else
             {
-                validTouch = true;
+                if (mySide == ScreenSide.Left && touch.position.x < Screen.width / 2.0f)
+                {
+                    validTouch = true;
+                } 
+                else if (mySide == ScreenSide.Right && touch.position.x > Screen.width / 2.0f)
+                {
+                    validTouch = true;
+                }
             }
 
             if (validTouch)

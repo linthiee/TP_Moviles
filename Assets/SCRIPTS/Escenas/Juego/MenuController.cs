@@ -32,7 +32,10 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("Difficulty", 0); 
         PlayerPrefs.Save();
         
-        SceneManager.LoadScene(sceneName);
+        menuPanel.SetActive(false);
+        difficultyPanel.SetActive(false);
+        
+        LoadingScreen.instance.LoadScene(sceneName);
     }
 
     public void SetNormalDifficulty()
@@ -40,7 +43,10 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("Difficulty", 1);
         PlayerPrefs.Save();
         
-        SceneManager.LoadScene(sceneName);
+        menuPanel.SetActive(false);
+        difficultyPanel.SetActive(false);
+
+        LoadingScreen.instance.LoadScene(sceneName);
     }
 
     public void SetHardDifficulty()
@@ -48,7 +54,10 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("Difficulty", 2); 
         PlayerPrefs.Save();
         
-        SceneManager.LoadScene(sceneName);
+        menuPanel.SetActive(false);
+        difficultyPanel.SetActive(false);
+
+        LoadingScreen.instance.LoadScene(sceneName);
     }
     
     public void GoToCredits()
