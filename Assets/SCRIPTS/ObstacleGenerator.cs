@@ -75,7 +75,7 @@ public class ObstacleGenerator : MonoBehaviour
                 Rigidbody rb = newObstacle.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.velocity = Vector3.zero;
+                    rb.linearVelocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
                 }
             }
