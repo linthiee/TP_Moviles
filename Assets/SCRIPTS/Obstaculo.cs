@@ -20,7 +20,6 @@ public class Obstaculo : MonoBehaviour
     {
         if (GameManager.Instancia != null)
         {
-            Debug.Log("pene " + GameManager.Instancia.currentDifficulty.ToString());
             if (GameManager.Instancia.currentDifficulty == GameManager.LevelDifficulty.Easy)
             {
                 Debug.Log("desapareciendo objeto");

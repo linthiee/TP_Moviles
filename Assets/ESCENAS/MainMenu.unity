@@ -2053,7 +2053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636b623571e236e41ba718ac5d4dd6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadingScreen
-  container: {fileID: 1104512215}
+  container: {fileID: 1243276846}
   progressBar: {fileID: 121832877}
   progressText: {fileID: 219700240}
   canvasGroup: {fileID: 1845054472}
