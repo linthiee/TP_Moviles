@@ -113493,6 +113493,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.7071055
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: easyRadius
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: hardRadius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: normalRadius
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -113582,6 +113598,22 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.7071055
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: easyRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: hardRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: normalRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 514ac53862939534083df9fb1d9b6d0d, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
