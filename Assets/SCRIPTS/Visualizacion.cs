@@ -13,7 +13,8 @@ public class Visualizacion : MonoBehaviour
     public enum Lado
     {
         Izq,
-        Der
+        Der,
+        Singleplayer
     }
 
     public Lado LadoAct;
@@ -323,41 +324,81 @@ public class Visualizacion : MonoBehaviour
 
     //---------//
 
+    // public void SetLado(Lado lado)
+    // {
+    //     LadoAct = lado;
+    //
+    //     Rect r = new Rect();
+    //     r.width = CamConduccion.rect.width;
+    //     r.height = CamConduccion.rect.height;
+    //     r.y = CamConduccion.rect.y;
+    //
+    //     switch (lado)
+    //     {
+    //         case Lado.Der:
+    //             r.x = 0.5f;
+    //             break;
+    //
+    //
+    //         case Lado.Izq:
+    //             r.x = 0;
+    //             break;
+    //     }
+    //
+    //     CamCalibracion.rect = r;
+    //     CamConduccion.rect = r;
+    //     CamDescarga.rect = r;
+    //
+    //     if (LadoAct == Visualizacion.Lado.Izq)
+    //     {
+    //         Techo.GetComponent<Renderer>().material.mainTexture = TextNum1;
+    //     }
+    //     else
+    //     {
+    //         Techo.GetComponent<Renderer>().material.mainTexture = TextNum2;
+    //     }
+    // }
+
     public void SetLado(Lado lado)
     {
         LadoAct = lado;
 
         Rect r = new Rect();
-        r.width = CamConduccion.rect.width;
-        r.height = CamConduccion.rect.height;
-        r.y = CamConduccion.rect.y;
+        r.height = 1f; 
+        r.y = 0f;
 
         switch (lado)
         {
             case Lado.Der:
-                r.x = 0.5f;
+                r.width = 0.5f; 
+                r.x = 0.5f;   
+                if (Techo != null) 
+                    Techo.GetComponent<Renderer>().material.mainTexture = TextNum2;
                 break;
-
 
             case Lado.Izq:
-                r.x = 0;
+                r.width = 0.5f; 
+                r.x = 0f;       
+                if (Techo != null) 
+                    Techo.GetComponent<Renderer>().material.mainTexture = TextNum1;
+                break;
+
+            case Lado.Singleplayer:
+                r.width = 1f;   
+                r.x = 0f;       
+                if (Techo != null)
+                    Techo.GetComponent<Renderer>().material.mainTexture = TextNum1;
                 break;
         }
 
-        CamCalibracion.rect = r;
-        CamConduccion.rect = r;
-        CamDescarga.rect = r;
-
-        if (LadoAct == Visualizacion.Lado.Izq)
-        {
-            Techo.GetComponent<Renderer>().material.mainTexture = TextNum1;
-        }
-        else
-        {
-            Techo.GetComponent<Renderer>().material.mainTexture = TextNum2;
-        }
+        if (CamCalibracion != null)
+            CamCalibracion.rect = r;
+        if (CamConduccion != null)
+            CamConduccion.rect = r;
+        if (CamDescarga != null)
+            CamDescarga.rect = r;
     }
-
+    
     void SetBonus()
     {
         if (Pj.ContrDesc.PEnMov != null)
