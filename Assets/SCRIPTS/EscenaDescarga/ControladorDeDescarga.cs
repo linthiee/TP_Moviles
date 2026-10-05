@@ -58,18 +58,31 @@ public class ControladorDeDescarga : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//contador de tiempo
 		if(PEnMov != null)
 		{
 			if(TempoBonus > 0)
 			{
 				Bonus = (TempoBonus * (float)PEnMov.Valor) / PEnMov.Tiempo;
-				TempoBonus -= T.GetDT();
+             
+				float multiplicadorCaida = 1f;
+             
+				if (GameManager.Instancia != null)
+				{
+					if (GameManager.Instancia.currentDifficulty == GameManager.LevelDifficulty.Easy)
+					{
+						multiplicadorCaida = 0.5f; 
+					}
+					else if (GameManager.Instancia.currentDifficulty == GameManager.LevelDifficulty.Hard)
+					{
+						multiplicadorCaida = 2.5f; 
+					}
+				}
+				TempoBonus -= T.GetDT() * multiplicadorCaida;
 			}
 			else
 			{
 				Bonus = 0;
-			}		
+			}     
 		}
 		
 		

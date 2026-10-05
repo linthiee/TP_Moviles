@@ -112438,6 +112438,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 1
 --- !u!114 &12716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112454,6 +112455,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 1
 --- !u!114 &12717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112470,6 +112472,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 0
 --- !u!114 &12718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112486,6 +112489,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 0
 --- !u!114 &12719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112502,6 +112506,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 0
 --- !u!114 &12721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112518,6 +112523,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 0
 --- !u!114 &12723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112990,6 +112996,7 @@ MonoBehaviour:
   TiempEmpDesapa: 2
   TiempDesapareciendo: 2
   PlayerTag: Player
+  deactivateInEasyMode: 1
 --- !u!114 &12903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113869,6 +113876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TiempoDeJuego: 60
+  currentDifficulty: 1
   EstAct: 0
   PlayerInfo1:
     FinCalibrado: 0
@@ -115785,6 +115793,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -115833,6 +115845,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -115883,6 +115899,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -115931,6 +115951,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -115984,6 +116008,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -116052,6 +116080,10 @@ PrefabInstance:
       value: Caja2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_TagString
       value: Obstaculo
       objectReference: {fileID: 0}
@@ -116082,6 +116114,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -116185,6 +116221,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -116278,6 +116318,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -118916,6 +118960,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -118976,6 +119024,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119038,6 +119090,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119090,6 +119146,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119144,6 +119204,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119196,6 +119260,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119258,6 +119326,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119318,6 +119390,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119380,6 +119456,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119440,6 +119520,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119502,6 +119586,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119554,6 +119642,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119608,6 +119700,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119660,6 +119756,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119714,6 +119814,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119767,6 +119871,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119819,6 +119927,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119881,6 +119993,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119941,6 +120057,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120003,6 +120123,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120064,6 +120188,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120116,6 +120244,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120170,6 +120302,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120222,6 +120358,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120276,6 +120416,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120328,6 +120472,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120390,6 +120538,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120451,6 +120603,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120503,6 +120659,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120565,6 +120725,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120617,6 +120781,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120679,6 +120847,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120731,6 +120903,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120785,6 +120961,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120826,6 +121006,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: 0.45409915
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7050827da489da941bec7d60bcf6ee3c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120858,6 +121042,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.35129544
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7292c36bbd8963848bd4cc6f5e80739c, type: 3}
+      propertyPath: deactivateInEasyMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -129962,7 +130150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controlador: {fileID: 0}
-  miInput: 2
   mySide: 1
   Desde: {fileID: 13040}
   Hasta: {fileID: 13041}
@@ -131456,7 +131643,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controlador: {fileID: 0}
-  miInput: 2
   mySide: 0
   Desde: {fileID: 13044}
   Hasta: {fileID: 13043}
@@ -131712,7 +131898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controlador: {fileID: 0}
-  miInput: 2
   mySide: 0
   Desde: {fileID: 13062}
   Hasta: {fileID: 13063}
@@ -131935,7 +132120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controlador: {fileID: 0}
-  miInput: 2
   mySide: 1
   Desde: {fileID: 13017}
   Hasta: {fileID: 13016}

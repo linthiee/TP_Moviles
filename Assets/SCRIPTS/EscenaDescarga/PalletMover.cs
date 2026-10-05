@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PalletMover : ManejoPallets {
 
-    public MoveType miInput;
+    private MoveType miInput;
     public enum MoveType {
         WASD,
         Arrows,
@@ -20,6 +20,25 @@ public class PalletMover : ManejoPallets {
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
     private bool processedSwipe = true;    
+    
+    private void Start() 
+    {
+        if (Application.isMobilePlatform) 
+        {
+            miInput = MoveType.Tactile;
+        } 
+        else 
+        {
+            if (mySide == ScreenSide.Left) 
+            {
+                miInput = MoveType.WASD;
+            } 
+            else 
+            {
+                miInput = MoveType.Arrows;
+            }
+        }
+    }
     
     private void Update() {
         switch (miInput) {

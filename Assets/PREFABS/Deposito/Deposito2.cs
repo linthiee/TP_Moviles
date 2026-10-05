@@ -20,6 +20,20 @@ public class Deposito2 : MonoBehaviour
 		Contr2 = GameObject.Find("ContrDesc2").GetComponent<ControladorDeDescarga>();
 		
 		Physics.IgnoreLayerCollision(8,9,false);
+		
+		BoxCollider deliveryZone = GetComponent<BoxCollider>();
+
+		if (deliveryZone != null && GameManager.Instancia != null)
+		{
+			if (GameManager.Instancia.currentDifficulty == GameManager.LevelDifficulty.Easy)
+			{
+				transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y, transform.localScale.z * 1.5f);
+			}
+			else if (GameManager.Instancia.currentDifficulty == GameManager.LevelDifficulty.Hard)
+			{
+				transform.localScale = new Vector3(transform.localScale.x * 0.6f, transform.localScale.y, transform.localScale.z * 0.6f);
+			}
+		}
 	}
 	
 	// Update is called once per frame

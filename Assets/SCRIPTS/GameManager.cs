@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
         Finalizado
     }
 
+    public enum LevelDifficulty { Easy, Normal, Hard }
+    public LevelDifficulty currentDifficulty = LevelDifficulty.Normal;
+    
     public EstadoJuego EstAct = EstadoJuego.Calibrando;
 
     public PlayerInfo PlayerInfo1 = null;
@@ -96,6 +99,27 @@ public class GameManager : MonoBehaviour
         {
             int eleccion = PlayerPrefs.GetInt("ModoSingleplayer");
             isSingleplayer = (eleccion == 1);
+        }
+        
+        if (PlayerPrefs.HasKey("Difficulty"))
+        {
+            currentDifficulty = (LevelDifficulty)PlayerPrefs.GetInt("Difficulty");
+        }
+        
+        bool isMobile = Application.isMobilePlatform;
+        
+        if (Player1 != null)
+        {
+            ControlDireccion dir1 = Player1.GetComponent<ControlDireccion>();
+            if (dir1 != null) 
+                dir1.InputAct = isMobile ? ControlDireccion.TipoInput.FloatingJoystick : ControlDireccion.TipoInput.AWSD;
+        }
+
+        if (Player2 != null)
+        {
+            ControlDireccion dir2 = Player2.GetComponent<ControlDireccion>();
+            if (dir2 != null) 
+                dir2.InputAct = isMobile ? ControlDireccion.TipoInput.FloatingJoystick : ControlDireccion.TipoInput.Arrows;
         }
     }
 
@@ -318,41 +342,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        switch (EstAct)
-        {
-            case EstadoJuego.Jugando:
-                if (ConteoRedresivo)
-                {
-                    GUI.skin = GS_ConteoInicio;
-
-                    R.x = ConteoPosEsc.x * Screen.width / 100;
-                    R.y = ConteoPosEsc.y * Screen.height / 100;
-                    R.width = ConteoPosEsc.width * Screen.width / 100;
-                    R.height = ConteoPosEsc.height * Screen.height / 100;
-
-                    if (ConteoParaInicion > 1)
-                    {
-                        GUI.Box(R, ConteoParaInicion.ToString("0"));
-                    }
-                    else
-                    {
-                        GUI.Box(R, "GO");
-                    }
-                }
-
-                GUI.skin = GS_TiempoGUI;
-                R.x = TiempoGUI.x * Screen.width / 100;
-                R.y = TiempoGUI.y * Screen.height / 100;
-                R.width = TiempoGUI.width * Screen.width / 100;
-                R.height = TiempoGUI.height * Screen.height / 100;
-                GUI.Box(R, TiempoDeJuego.ToString("00"));
-                break;
-        }
-
-        GUI.skin = null;
-    }
+    // void OnGUI()
+    // {
+    //     switch (EstAct)
+    //     {
+    //         case EstadoJuego.Jugando:
+    //             if (ConteoRedresivo)
+    //             {
+    //                 GUI.skin = GS_ConteoInicio;
+    //
+    //                 R.x = ConteoPosEsc.x * Screen.width / 100;
+    //                 R.y = ConteoPosEsc.y * Screen.height / 100;
+    //                 R.width = ConteoPosEsc.width * Screen.width / 100;
+    //                 R.height = ConteoPosEsc.height * Screen.height / 100;
+    //
+    //                 if (ConteoParaInicion > 1)
+    //                 {
+    //                     GUI.Box(R, ConteoParaInicion.ToString("0"));
+    //                 }
+    //                 else
+    //                 {
+    //                     GUI.Box(R, "GO");
+    //                 }
+    //             }
+    //
+    //             GUI.skin = GS_TiempoGUI;
+    //             R.x = TiempoGUI.x * Screen.width / 100;
+    //             R.y = TiempoGUI.y * Screen.height / 100;
+    //             R.width = TiempoGUI.width * Screen.width / 100;
+    //             R.height = TiempoGUI.height * Screen.height / 100;
+    //             GUI.Box(R, TiempoDeJuego.ToString("00"));
+    //             break;
+    //     }
+    //
+    //     GUI.skin = null;
+    // }
 
     //----------------------------------------------------------//
 
